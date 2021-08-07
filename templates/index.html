@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>
+            <td><strong>Symbol</strong></td>
+            <td><strong>Stocks</strong></td>
+            <td><strong>No. of shares</strong></td>
+            <td><strong>Current Price</strong></td>
+            <td><strong>Total Value</strong></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in portfolio %}
+            <tr>
+                <td>{{ data.symbol }}</td>
+                <td>{{ data.shares }}</td>
+                <td>{{ data.no_of_shares }}</td>
+                <td>{{ data.price_per_share | usd}}</td>
+                <td>{{ (data.price_per_share * data.no_of_shares) | usd}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>CASH:</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ cash | usd}}</td>
+            </tr>
+
+            <tr>
+                <td>GRAND TOTAL:</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ g_total | usd}}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

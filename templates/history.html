@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<div>
+    <table>
+        <strong>PURCHASE TABLE</strong>
+        <thead>
+            <tr>
+            <td><strong>Symbol</strong></td>
+            <td><strong>Company Name</strong></td>
+            <td><strong>No. of shares</strong></td>
+            <td><strong>Price per share</strong></td>
+            <td><strong>Total Value</strong></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for dicts in buy %}
+                <tr>
+                    <td>{{ dicts.symbol }}</td>
+                    <td>{{ dicts.company_name }}</td>
+                    <td>{{ dicts.no_of_shares }}</td>
+                    <td>{{ dicts.price_per_share }}</td>
+                    <td>{{ dicts.total_price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br><br><br>
+<div>
+    <table>
+        <strong>SALE TABLE</strong>
+        <thead>
+            <tr>
+            <td><strong>Symbol</strong></td>
+            <td><strong>Company Name</strong></td>
+            <td><strong>No. of shares</strong></td>
+            <td><strong>Price per share</strong></td>
+            <td><strong>Total Value</strong></td>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for dicts in sell %}
+                <tr>
+                    <td>{{ dicts.symbol }}</td>
+                    <td>{{ dicts.company_name }}</td>
+                    <td>{{ dicts.no_of_shares }}</td>
+                    <td>{{ dicts.price_per_share }}</td>
+                    <td>{{ dicts.total_price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

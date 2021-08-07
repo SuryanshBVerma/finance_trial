@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <li>Name   : {{ data.name }}</li>
+    <li>Price  : {{ data.price | usd }} </li>
+    <li>Symbol : {{ data.symbol }} </li>
+{% endblock %}
+
